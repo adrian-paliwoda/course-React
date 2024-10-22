@@ -8,3 +8,9 @@ Code is based on React - The Complete Guide" course
 - HTML
 - JavaScript
 - React
+
+# Example
+
+## Simple App presents basic mechanism in React
+
+![Simple App](./screenshots/react_essentials.png)
