@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 const defaultInterval = 100;
 
-export default function QuestionTimer({ onTimeout, timeoutForAnswer = 15000 }) {
+export default function QuestionTimer({ onTimeout, timeoutForAnswer = 15000, mode }) {
   const [remainingTime, setRemainingTime] = useState(timeoutForAnswer);
 
   useEffect(() => {
@@ -23,5 +23,5 @@ export default function QuestionTimer({ onTimeout, timeoutForAnswer = 15000 }) {
     };
   }, []);
 
-  return <progress id="question-time" max={timeoutForAnswer} value={remainingTime} />;
+  return <progress id="question-time" max={timeoutForAnswer} value={remainingTime} className={mode} />;
 }
