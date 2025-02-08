@@ -1,10 +1,27 @@
-import Places from './Places.jsx';
+import { useEffect, useState } from "react";
+import Places from "./Places.jsx";
+
+const places = localStorage.getItem("places");
 
 export default function AvailablePlaces({ onSelectPlace }) {
+  const [availablePlaces, setAvailablePlaces] = useState([]);
+
+  useEffect(() => {
+    const places = fetch("http://localhost:3000/places")
+      .then((response) => {
+        return response.json();
+      })
+      .then((results) => {
+        setAvailablePlaces(results.places);
+        localStorage.setItem("places", JSON.parse(results.places));
+      })
+      .catch(() => console.log("Cannot fetch places"));
+  }, []);
+
   return (
     <Places
       title="Available Places"
-      places={[]}
+      places={availablePlaces}
       fallbackText="No places available."
       onSelectPlace={onSelectPlace}
     />
