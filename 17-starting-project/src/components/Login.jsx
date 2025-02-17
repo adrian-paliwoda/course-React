@@ -23,6 +23,14 @@ export default function Login() {
     event.target.reset();
   }
 
+  function handleEmailChange() {
+    setEmailIsValid(true);
+  }
+
+  function handlePasswordChange() {
+    setPasswordIsValid(true);
+  }
+
   function handleEmailBlur() {
     const enteredEmail = email.current.value;
 
@@ -54,22 +62,27 @@ export default function Login() {
             id="email"
             type="email"
             name="email"
+            onChange={handleEmailChange}
             onBlur={handleEmailBlur}
             ref={email}
           />
         </div>
-        <div className="control-error">
-          {!emailIsValid && <p>Please enter a valid email</p>}
-        </div>
-
         <div className="control no-margin">
           <label htmlFor="password">Password</label>
-          <input id="password" type="password" name="password" onBlur={handlePasswordBlur} ref={password} />
+          <input
+            id="password"
+            type="password"
+            name="password"
+            onChange={handlePasswordChange}
+            onBlur={handlePasswordBlur}
+            ref={password}
+          />
         </div>
       </div>
       <div className="control-error">
-          {!passwordIsValid && <p>Please enter a valid password</p>}
-        </div>
+        {!emailIsValid && <p>Please enter a valid email</p>}
+        {!passwordIsValid && <p>Please enter a valid password</p>}
+      </div>
 
       <p className="form-actions">
         <button className="button button-flat" onClick={handleReset}>
