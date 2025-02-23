@@ -16,6 +16,16 @@ export default function Login() {
 
     console.log(enteredEmail);
     console.log(enteredPassword);
+
+
+    const emailIsInvalid = !enteredEmail.includes('@');
+    if (emailIsInvalid){
+      setEmailIsValid(false);
+      return;
+    }
+
+    setEmailIsValid(true);
+
     // event.target.reset();
   }
 
@@ -62,8 +72,8 @@ export default function Login() {
             id="email"
             type="email"
             name="email"
-            onChange={handleEmailChange}
-            onBlur={handleEmailBlur}
+            // onChange={handleEmailChange}
+            // onBlur={handleEmailBlur}
             ref={email}
           />
         </div>
@@ -73,8 +83,8 @@ export default function Login() {
             id="password"
             type="password"
             name="password"
-            onChange={handlePasswordChange}
-            onBlur={handlePasswordBlur}
+            // onChange={handlePasswordChange}
+            // onBlur={handlePasswordBlur}
             ref={password}
           />
         </div>
