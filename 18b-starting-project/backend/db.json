@@ -1,11 +1,39 @@
 {
   "opinions": [
     {
+      "id": 1742059858434,
+      "votes": 0,
+      "userName": "adfadsf",
+      "title": "asdfasdfas",
+      "body": "asdfasdfadsfadsf"
+    },
+    {
+      "id": 1742059827782,
+      "votes": 0,
+      "userName": "asdfadsf",
+      "title": "asdfadsfa",
+      "body": "adsfdfadsfasdff"
+    },
+    {
+      "id": 1742059675551,
+      "votes": 0,
+      "userName": "adsfasdfdas",
+      "title": "asdfasdfa",
+      "body": "sdfasdfadsfdfasf"
+    },
+    {
+      "id": 1742059482593,
+      "votes": 1,
+      "userName": "Adrian",
+      "title": "Tets123",
+      "body": "This opinion is test"
+    },
+    {
       "id": 1,
       "userName": "Maximilian Schwarzmüller",
       "title": "Do yourself a favor and learn React!",
       "body": "React is an amazing JavaScript library!\n\nDespite all it's shortcomings.",
-      "votes": 0
+      "votes": 2
     },
     {
       "id": 2,
