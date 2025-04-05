@@ -4,11 +4,12 @@ import { createPortal } from "react-dom";
 export default function Modal({ open, classes, children, ...props }) {
   const dialog = useRef();
   useEffect(() => {
+    const modal = dialog.current;
     if (open) {
-      dialog.current.showModal();
-    } else {
-      dialog.current.closeModal();
+      modal.showModal();
     }
+
+    return () => modal.close();
   }, [open]);
 
   return createPortal(
