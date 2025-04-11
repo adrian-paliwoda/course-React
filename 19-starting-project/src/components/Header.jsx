@@ -2,7 +2,7 @@ import { useContext } from "react";
 import logoImg from "../assets/logo.jpg";
 import Button from "./UI/Button";
 import CartContext from "../store/CartContext";
-import UserProgressContext from "../store/userProgressContext";
+import UserProgressContext from "../store/UserProgressContext";
 
 export default function Header({ title = "React Food" }) {
   const cartContext = useContext(CartContext);
