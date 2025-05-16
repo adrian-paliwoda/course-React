@@ -7,11 +7,11 @@ const CartItem = (props) => {
   const dispach = useDispatch();
 
   const addItem = () => {
-    dispach(cartActions.addItemToCart({id, title, price}))
+    dispach(cartActions.addItemToCart({id, title, price}));
   }
 
   const removeItem = () => {
-    dispach(cartActions.removeItemFromCart(id))
+    dispach(cartActions.removeItemFromCart(id));
   }
 
   return (
