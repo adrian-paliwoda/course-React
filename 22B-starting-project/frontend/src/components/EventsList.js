@@ -1,24 +1,37 @@
-import classes from './EventsList.module.css';
+import { useEffect, useState } from 'react';
 
-function EventsList({ events }) {
+import EventsList from '../components/EventsList';
+
+function EventsPage() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [fetchedEvents, setFetchedEvents] = useState();
+  const [error, setError] = useState();
+
+  useEffect(() => {
+    async function fetchEvents() {
+      setIsLoading(true);
+      const response = await fetch('http://localhost:8080/events');
+
+      if (!response.ok) {
+        setError('Fetching events failed.');
+      } else {
+        const resData = await response.json();
+        setFetchedEvents(resData.events);
+      }
+      setIsLoading(false);
+    }
+
+    fetchEvents();
+  }, []);
   return (
-    <div className={classes.events}>
-      <h1>All Events</h1>
-      <ul className={classes.list}>
-        {events.map((event) => (
-          <li key={event.id} className={classes.item}>
-            <a href="...">
-              <img src={event.image} alt={event.title} />
-              <div className={classes.content}>
-                <h2>{event.title}</h2>
-                <time>{event.date}</time>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <div style={{ textAlign: 'center' }}>
+        {isLoading && <p>Loading...</p>}
+        {error && <p>{error}</p>}
+      </div>
+      {!isLoading && fetchedEvents && <EventsList events={fetchedEvents} />}
+    </>
   );
 }
 
-export default EventsList;
+export default EventsPage;
